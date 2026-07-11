@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://api.theclevar.com/";
+const BASE_URL = "https://api.theclevar.com";
 
 const ApiService = {
 

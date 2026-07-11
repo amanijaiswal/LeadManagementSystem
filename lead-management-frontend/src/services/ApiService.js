@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://lead-management-backend.onrender.com/api";
+const BASE_URL = "https://api.theclevar.com/";
 
 const ApiService = {
 

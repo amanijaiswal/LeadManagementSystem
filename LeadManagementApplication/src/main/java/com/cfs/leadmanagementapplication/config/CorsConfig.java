@@ -2,29 +2,34 @@ package com.cfs.leadmanagementapplication.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.cors.*;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
+
+import java.util.List;
 
 @Configuration
 public class CorsConfig {
 
     @Bean
-    public CorsConfigurationSource corsConfigurationSource(){
+    public CorsFilter corsFilter() {
 
-        CorsConfiguration configuration=new CorsConfiguration();
+        CorsConfiguration config = new CorsConfiguration();
 
-        configuration.addAllowedOrigin("*");
+        config.setAllowCredentials(true);
 
-        configuration.addAllowedHeader("*");
+        config.setAllowedOrigins(List.of(
+                "https://YOUR-VERCEL-APP.vercel.app"
+        ));
 
-        configuration.addAllowedMethod("*");
+        config.setAllowedHeaders(List.of("*"));
+        config.setAllowedMethods(List.of("*"));
 
-        UrlBasedCorsConfigurationSource source=
+        UrlBasedCorsConfigurationSource source =
                 new UrlBasedCorsConfigurationSource();
 
-        source.registerCorsConfiguration("/**",configuration);
+        source.registerCorsConfiguration("/**", config);
 
-        return source;
-
+        return new CorsFilter(source);
     }
-
 }

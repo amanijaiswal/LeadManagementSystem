@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:8081/api";
+const BASE_URL = "https://lead-management-backend-g6ws.onrender.com";
 
 const ApiService = {
 
